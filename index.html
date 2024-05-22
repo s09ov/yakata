@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>開館カウンター</title>
+        <meta name="description" content="開館カウンター">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/index.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <script>
+            function updateRemainingTime() {
+            var now = new Date();
+            var target = new Date();
+            target.setHours(19);
+            target.setMinutes(30);
+            target.setSeconds(0);
+
+            var remainingTime = target - now;
+            remainingTime = remainingTime + (6 - now.getDay()) * 24 * 60 * 60 * 1000;
+            var remainingHours = Math.floor(remainingTime / (1000 * 60 * 60));
+            var remainingMinutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            var remainingSeconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            document.getElementById("rest").textContent = remainingHours + "時間 " + remainingMinutes + "分 " + remainingSeconds + "秒";
+            }
+
+            setInterval(updateRemainingTime, 1000);
+        </script>
+    </head>
+
+    <body>
+        <main class="main">
+            <div class="main__inner">
+                <h1 class="main__title">開館まで:</h1>
+                <p class="main__rest" id="rest"></p>
+            </div>
+        </main>
+    </body>
+</html>
