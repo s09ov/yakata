@@ -1,2 +1,2 @@
 GitHub Page
-https://teraharu125.github.io/yakata/
+https://s09ov.github.io/yakata/
